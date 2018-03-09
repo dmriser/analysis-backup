@@ -1,0 +1,22 @@
+{
+    "system":{
+	"file_list":"/u/home/dmriser/pyrootAnalysis/files.dat",
+	"output":"/u/home/dmriser/pyrootAnalysis/out/",
+	"config_name":"ekx",
+	"n_cores":1,
+	"n_files":50
+    },
+
+    "cut_values":{
+	"meson_id":321,
+	"missing_mass":[1.6, 10.0],
+	"tof_mass":[0.4, 0.6]
+    }, 
+
+    "bins":{
+	"x":[0.2, 0.3, 0.4, 0.5, 0.6, 0.7],
+	"q2":[1.0, 2.0, 3.0, 4.0],
+	"z":[0.0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9, 1.0],
+	"pt":[0.0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9, 1.0]
+    }
+}

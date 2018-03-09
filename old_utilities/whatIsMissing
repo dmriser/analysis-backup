@@ -1,0 +1,52 @@
+#!/bin/tcsh
+
+# Usage:
+# whatIsMissing <full path/just name: 0/1>
+
+# this variable is used to store preference to print just the name
+# or the entire path to the missing files
+set needName = $1
+
+# quit if we dont have output preference
+if ($needName !~ 0 && $needName !~ 1) then 
+    echo usage: fullpath 0 / just name 1
+    break
+endif
+
+# load all files that we should have
+set allfiles = `ls /mss/clas/e1f/data/clas_0* | cut -d'/' -f6`
+# echo starting $#allfiles file comparisons 
+
+# load all files that we DO have from our system
+set myfiles  = `ls /volatile/clas12/dmriser/analysis/e1f_analysis/fcup/clas_* | cut -d'/' -f9 | cut -d'.' -f1-2`
+
+# boolean variable that turns into 1 if we find a matching file in OUR directory
+set match = 0
+
+foreach afile ($allfiles)      # loop over all files 
+    foreach mfile ($myfiles)   # loop over my files to look for a match
+    
+    if ($afile == $mfile) then # flip the switch to yes for file found
+	set match = 1
+	break                  # exit the loop upon matching to speed code up
+    endif
+
+    end                        # end loop over my files, now match should be 1 if we have a match
+     
+# decide what to print
+    if ($match =~ 0) then 
+	if ($needName =~ 0) then  
+	    echo `ls /mss/clas/e1f/data/$afile` 
+	endif
+	
+	if ($needName =~ 1) then 
+	    echo $afile 
+	endif             # tell the user the names of the files missing
+    endif
+    
+
+    set match = 0              # turn the switch off again before entering the loop
+    
+end                            # end the loop over all files
+
+

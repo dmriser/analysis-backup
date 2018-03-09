@@ -1,0 +1,6 @@
+#!/bin/tcsh 
+
+set jobDirectory = "/volatile/clas/clas12/dmriser/analysis/mcdata/keppel_rad_pass4/JOB_1"
+set lundFile = `ls $jobDirectory/*.lund`
+
+echo "Found file $lundFile"

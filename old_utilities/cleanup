@@ -1,0 +1,15 @@
+#!/bin/tcsh 
+
+set user = `whoami`
+
+# clean the farm out directory 
+rm -rf ~/.farmout/
+
+# check for big files 
+set homeFiles = `du -h /u/home/$user | grep "[3-9][0-9]M"`
+set volFiles  = `du -h /volatile/clas12/$user | grep "[1-9][0-9]G"`
+
+
+foreach file ($homeFiles) 
+    echo $file
+end

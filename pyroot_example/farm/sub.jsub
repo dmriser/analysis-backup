@@ -1,0 +1,16 @@
+JOBNAME:     PyrootAnalysis 
+TRACK:       simulation
+OS:          centos7
+PROJECT:     e1f
+TIME:        60
+DISK_SPACE:  4096 MB
+MEMORY:      16384 MB
+CPU:         16
+
+COMMAND:    source /u/home/dmriser/root6.env ; /volatile/clas12/dmriser/Anaconda/build/bin/python analysis.py farm.json
+
+OTHER_FILES: 
+/u/home/dmriser/pyrootAnalysis/farm.json
+/u/home/dmriser/pyrootAnalysis/analysis.py
+/u/home/dmriser/pyrootAnalysis/multiproc.py
+/u/home/dmriser/pyrootAnalysis/__init__.py

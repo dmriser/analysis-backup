@@ -1,0 +1,34 @@
+#!/bin/tcsh 
+
+# Usage:
+# fcAccum <infiledir> <outfiledir>
+
+set indir   = $1
+set outdir  = $2
+set workdir = `pwd`
+
+#
+cd   $indir                  # go to the directory to get a list of files 
+set  files = `ls *.fcup`     # load a large array of files
+
+mkdir tempdir
+
+# main loop over files
+foreach file ($files)
+    set h = `head -n 1 $file`
+    set t = `tail -n 1 $file`
+    
+    echo $h $t > fcAccum.temp.$file
+    awk '{print $2-$1;}' fcAccum.temp.$file > tempdir/$file.fcAccum
+end
+
+
+# move the product to the output directory
+cp tempdir/* $outdir 
+
+# clean up our mess
+rm -r tempdir/
+rm fcAccum.temp.*
+
+
+

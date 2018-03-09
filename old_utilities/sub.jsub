@@ -1,0 +1,19 @@
+JOBNAME: e1f_analysis
+TRACK: simulation
+OS: centos65
+PROJECT: E1F
+DISK_SPACE: 4 GB
+
+INPUT_DATA: input.bos
+
+OUTPUT_DATA: out.txt
+
+OUTPUT_TEMPLATE: /volatile/clas12/dmriser/analysis/ef1_analysis/fcup_out/*.fcup
+
+OTHER_FILES:
+/u/home/dmriser/mydoc/analysis/utils/bos2txt_v2
+/u/home/dmriser/mydoc/analysis/utils/sub.run
+
+COMMAND: chmod a+x sub.run; ./sub.run
+
+INPUT_FILES:

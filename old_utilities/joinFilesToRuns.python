@@ -1,0 +1,24 @@
+#!/usr/bin/python 
+
+import glob
+import numpy
+
+runs = []
+all_files = glob.glob('clas_*.fcup')
+
+for file in all_files:
+    runs.append(file.split('.')[0].split('_')[1])
+
+runs = numpy.unique(runs)
+
+print " > found %d runs, now looping on runs... " % (len(runs))
+
+for run in runs:
+    subfiles = glob.glob('clas_' + run + '*.fcup')
+    
+    with open(run + '.fcup','w') as outfile: 
+        for sub in subfiles: 
+            with open(sub) as infile:
+                outfile.write(infile.read())
+                
+    print "     > done %s " % (run)

@@ -1,0 +1,14 @@
+#!/bin/tcsh
+
+echo starting...
+
+source /group/clas/builds/environment.csh
+
+set input  = $1
+set output = $2
+
+bosdump -GTRGS -GHEAD $input > temp.out.b2t
+perl faradayCupFilter.perl temp.out.b2t out.txt
+rm temp.out.b2t
+
+

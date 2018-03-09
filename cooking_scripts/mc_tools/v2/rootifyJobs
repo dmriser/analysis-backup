@@ -1,0 +1,9 @@
+#!/bin/tcsh 
+
+set dir = $1 
+set files = `ls $dir/JOB_*/outfile1`
+
+foreach f ($files)
+	echo "Doing file.. $f"
+	/u/home/dmriser/mydoc/analysis/root_scripts/bos2root22/build/bin/bos2root22 -N=1e6 -PRINT=1e3 $f > /dev/null
+end

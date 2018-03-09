@@ -1,0 +1,20 @@
+JOBNAME:     fullMonteCarlo
+TRACK:       debug
+OS:          centos7
+PROJECT:     e1f
+TIME:        120
+DISK_SPACE:  2048 MB
+MEMORY:      2048 MB
+MULTI_JOBS:  1
+
+COMMAND:    chmod +x goSimulate; ./goSimulate /volatile/clas12/dmriser/analysis/mcdata elast_gen_cole elast_gen_debug59/
+
+OTHER_FILES: 
+/u/home/dmriser/cook/mc_tools/v2/goSimulate
+/u/home/dmriser/cook/mc_tools/v2/getJobNumber
+/u/home/dmriser/cook/mc_tools/kjuser_ana
+/u/home/dmriser/cook/mc_tools/ffread.in
+/u/home/dmriser/cook/mc_tools/recsis_e1f_MC.tcl 
+/u/home/dmriser/cook/mc_tools/recsis_e1f_MC_old.tcl 
+/u/home/dmriser/cook/mc_tools/recsis_mauri.tcl 
+/u/home/dmriser/CLASSourceCode/elast_gen/inputFiles/e1f.inp 

@@ -1,0 +1,22 @@
+JOBNAME:     data
+TRACK:       reconstruction
+OS:          centos65
+PROJECT:     e1f
+TIME:        720
+DISK_SPACE:  4096 MB
+MEMORY:      2048 MB
+
+COMMAND:    chmod +x goCook; ./goCook 
+
+OTHER_FILES: 
+/u/home/dmriser/mydoc/cooking_supplies/data_tools/goCook
+/u/home/dmriser/mydoc/cooking_supplies/data_tools/recsis_e1f_data.tcl 
+
+OUTPUT_DATA: out.root
+OUTPUT_TEMPLATE: /volatile/clas12/dmriser/analysis/e1f_analysis/debug_jobs10/*.root
+
+INPUT_DATA: raw.bos
+
+INPUT_FILES:
+/mss/clas/e1f/data/clas_038300.A00
+/mss/clas/e1f/data/clas_038300.A01

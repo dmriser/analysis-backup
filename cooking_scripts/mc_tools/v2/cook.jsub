@@ -1,0 +1,25 @@
+JOBNAME:     fullMonteCarlo
+TRACK:       simulation
+OS:          centos65
+PROJECT:     e1f
+TIME:        600
+DISK_SPACE:  1024 MB
+MEMORY:      2048 MB
+
+COMMAND:    chmod +x goCook; ./goCook
+  
+OTHER_FILES: 
+/u/home/dmriser/mydoc/cooking_supplies/mc_tools/v2/goCook
+/u/home/dmriser/mydoc/cooking_supplies/mc_tools/ffread.in
+/u/home/dmriser/mydoc/cooking_supplies/mc_tools/recsis_e1f_MC.tcl 
+
+OUTPUT_DATA: out.root 
+OUTPUT_TEMPLATE: /volatile/clas12/dmriser/analysis/mcdata/clasdis_small_batch2/*.root 
+
+INPUT_DATA: gen.dat
+INPUT_FILES: 
+/volatile/clas12/dmriser/temp/clasdis_test/TEST_clasdispr.00.e5.498.emin.75tmin.09.xs31.83nb.dis.0000.dat
+/volatile/clas12/dmriser/temp/clasdis_test/TEST_clasdispr.00.e5.498.emin.75tmin.09.xs31.83nb.dis.0001.dat
+/volatile/clas12/dmriser/temp/clasdis_test/TEST_clasdispr.00.e5.498.emin.75tmin.09.xs31.83nb.dis.0002.dat
+/volatile/clas12/dmriser/temp/clasdis_test/TEST_clasdispr.00.e5.498.emin.75tmin.09.xs31.83nb.dis.0003.dat
+/volatile/clas12/dmriser/temp/clasdis_test/TEST_clasdispr.00.e5.498.emin.75tmin.09.xs31.83nb.dis.0004.dat

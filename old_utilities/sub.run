@@ -1,0 +1,6 @@
+#!/bin/tcsh
+
+echo starting sub.run
+source /group/clas/builds/environment.csh
+bos2txt_v2 input.bos out.txt
+echo done sub.run

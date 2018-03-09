@@ -1,0 +1,15 @@
+#!/bin/tcsh 
+
+set searchDirectory = $1 
+set key             = $2
+
+set files = `ls $searchDirectory/*`
+
+foreach file ($files)
+    set occurances = `cat $file | grep -c $key`
+#    echo "file=$file, N=$occurances"
+
+	if ($occurances > 0) then
+	   echo $file
+	endif
+end

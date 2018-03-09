@@ -1,0 +1,31 @@
+#!/usr/bin/perl
+
+use strict;
+use warnings;
+
+my $file=$ARGV[0];
+if (not defined @ARGV) {die "usage: $0 <datafile> \n"};
+print "generating list of banks in file: $file \n";
+
+system("bosdump '$file' | egrep Group: > tt.00.out");
+open (my $fh,'<','tt.00.out');
+
+my $tline=0;
+my @old=();
+
+while(my $line=<$fh>){
+    chomp $line;
+    $tline=substr($line,7,5);
+    push (@old,$tline);
+}
+
+my %seen;
+@seen{@old}=();
+my @unique=keys %seen;
+
+print "@unique \n";
+
+close ($fh);
+system("rm tt.00.out");
+
+

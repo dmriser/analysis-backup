@@ -1,0 +1,19 @@
+JOBNAME: bos2txt 
+TRACK:   simulation
+PROJECT: E1F
+MEMORY:  1024 MB
+TIME:    30 
+
+OTHER_FILES: 
+/u/home/dmriser/mydoc/analysis/utils/bos2txt_v2
+/u/home/dmriser/mydoc/analysis/utils/faradayCupFilter.perl
+
+COMMAND: ./bos2txt_v2 in.bos out.txt 
+
+OUTPUT_DATA: out.txt 
+OUTPUT_TEMPLATE: /volatile/clas12/dmriser/analysis/e1f_analysis/fcup/*.fcup
+
+INPUT_DATA: in.bos
+
+INPUT_FILES:  
+

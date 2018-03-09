@@ -1,0 +1,26 @@
+#!/bin/tcsh -f
+
+# Setup the environment for GSIM and USER_ANA.
+setenv CLAS_CALDB_RUNINDEX calib_user.RunIndexe1f
+source /group/clas/builds/centos65/environment.csh
+
+# Get the utilities from my folders. 
+set mainPath = "/u/home/dmriser/mydoc/cooking_supplies"
+
+# Begin processing the job.
+echo " ------------ STARTING JOB ------------ " 
+echo " USER_ANA:  " `which user_ana`           
+echo " nt22maker: " `which nt22maker`          
+echo " ------------------------------------- " 
+
+#user_ana -t recsis_mauri.tcl
+
+user_ana -t recsis_e1f_data.tcl
+nt22maker
+
+echo " ----------- RECONSTRUCTION DONE ------------ "                                
+# to get h2root 
+source /group/clas12/environment.csh 
+h2root dstfile.hbook out.root                                                       
+
+

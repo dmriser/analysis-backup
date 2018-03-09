@@ -1,0 +1,14 @@
+#!/bin/tcsh -f
+
+set jobnum = $1
+
+source /group/clas/builds/environment.csh
+
+ln -s /home/dmriser/mydoc/CLASSourceCode/elast_gen/bin/LinuxRHEL5/elast_gen
+
+echo " > beggining generation for file $jobnum "
+
+elast_gen < e1f.inp
+
+echo " > finished "
+ls -lh

@@ -1,0 +1,18 @@
+#!/bin/tcsh 
+
+if ($1 == "") then 
+    echo "Usage: ./searchLibForObject libPath objectName"
+    exit
+endif
+
+set libPath    = $1 
+set objectName = $2
+
+set libs = `ls $libPath*.a`
+
+foreach lib ($libs)
+	set occurances = `nm $lib | grep -c $objectName`
+	if ($occurances > 0) then
+	   echo "lib=$lib, $occurances"
+	endif
+end
